@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-disk-audit"
+version = "0.1.0"
+description = "Audit-only Windows disk triage tool for grouped cleanup review."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "OpenAI Codex" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+openai = ["openai>=1.50.0"]
+
+[project.scripts]
+codex-disk-audit = "codex_disk_audit.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

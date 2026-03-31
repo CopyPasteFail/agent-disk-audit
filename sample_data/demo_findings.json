@@ -1,0 +1,370 @@
+{
+  "findings": [
+    {
+      "unit_id": "cache-folder-c-users-demo-appdata-local-temp",
+      "name": "Temp (temp)",
+      "path": "C:\\Users\\demo\\AppData\\Local\\Temp",
+      "root_path": "C:\\Users\\demo\\AppData\\Local\\Temp",
+      "item_kind": "folder",
+      "unit_type": "folder_unit",
+      "category": "temp",
+      "zone": "medium_risk_zone",
+      "risk": "medium",
+      "confidence_score": 78,
+      "confidence_label": "high",
+      "total_size_bytes": 2441084928,
+      "file_count": 1832,
+      "display_size": "2.3 GB",
+      "display_modified_at": "2026-03-12",
+      "recommendation": "Probably recreatable cache/temp; review likely worthwhile.",
+      "reason_summary": "Entire folder matches a known temp pattern and is large enough to review as one unit.",
+      "llm_rationale": "Flagged as temp in a medium risk zone based on deterministic local evidence. Primary signals: User temp directory.; size=2.3 GB; files=1832; extensions=.tmp x941, .log x218, [no extension] x170. Cleanup characterization: recreatable, non-essential.",
+      "uncertainty_notes": [
+        "Folder names alone do not guarantee the contents are disposable; review sample files before acting."
+      ],
+      "counterarguments": [
+        "Some applications keep active staging data in temp folders."
+      ],
+      "cleanup_characterization": [
+        "recreatable",
+        "non-essential"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "User temp directory."
+        ],
+        "category_hints": [
+          "temp"
+        ],
+        "under_high_risk_zone": false,
+        "vendor_hint": "Local",
+        "likely_generated_data": true,
+        "age_threshold_hit": true,
+        "locked_state": "not_checked",
+        "duplicate_evidence": null,
+        "confidence_penalties": [],
+        "sample_count": 5
+      },
+      "grouping_logic": "Entire folder grouped as one cleanup unit because the path strongly matches a known cache/temp/log/dump pattern.",
+      "evidence_source": "deterministic only",
+      "sample_files": [
+        {
+          "path": "C:\\Users\\demo\\AppData\\Local\\Temp\\build-cache.tmp",
+          "size_bytes": 881786880,
+          "created_at": "2026-02-02T09:00:00+00:00",
+          "modified_at": "2026-03-01T09:00:00+00:00",
+          "accessed_at": null,
+          "extension": ".tmp"
+        }
+      ],
+      "extension_distribution": [
+        {
+          "extension": ".tmp",
+          "count": 941
+        },
+        {
+          "extension": ".log",
+          "count": 218
+        }
+      ],
+      "web_citations": []
+    },
+    {
+      "unit_id": "logs-files-c-users-demo-appdata-local-vendor-logs",
+      "name": "logs logs subset",
+      "path": "C:\\Users\\demo\\AppData\\Local\\Vendor\\logs",
+      "root_path": "C:\\Users\\demo\\AppData\\Local\\Vendor\\logs",
+      "item_kind": "grouped_files",
+      "unit_type": "hybrid_unit",
+      "category": "logs",
+      "zone": "medium_risk_zone",
+      "risk": "medium",
+      "confidence_score": 70,
+      "confidence_label": "medium",
+      "total_size_bytes": 912680550,
+      "file_count": 27,
+      "display_size": "870.4 MB",
+      "display_modified_at": "2026-02-18",
+      "recommendation": "Probably non-essential log data; review likely worthwhile.",
+      "reason_summary": "Grouped 27 file(s) under one folder because they share a logs pattern and are large or old enough to review together.",
+      "llm_rationale": "Flagged as logs in a medium risk zone based on deterministic local evidence.",
+      "uncertainty_notes": [
+        "Files in a mixed folder may still include items the user wants to keep."
+      ],
+      "counterarguments": [
+        "Diagnostic history may still be needed for unresolved support issues."
+      ],
+      "cleanup_characterization": [
+        "non-essential",
+        "probably_unused"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "logs"
+        ],
+        "category_hints": [
+          "logs"
+        ],
+        "under_high_risk_zone": false,
+        "vendor_hint": "Local",
+        "likely_generated_data": true,
+        "age_threshold_hit": true,
+        "locked_state": "not_checked",
+        "duplicate_evidence": null,
+        "confidence_penalties": [],
+        "sample_count": 5
+      },
+      "grouping_logic": "Subset of files grouped by shared logs pattern inside one parent folder.",
+      "evidence_source": "deterministic only",
+      "sample_files": [],
+      "extension_distribution": [
+        {
+          "extension": ".log",
+          "count": 19
+        },
+        {
+          "extension": ".etl",
+          "count": 8
+        }
+      ],
+      "web_citations": []
+    },
+    {
+      "unit_id": "downloads-old-c-users-demo-downloads",
+      "name": "Downloads downloads old subset",
+      "path": "C:\\Users\\demo\\Downloads",
+      "root_path": "C:\\Users\\demo\\Downloads",
+      "item_kind": "grouped_files",
+      "unit_type": "hybrid_unit",
+      "category": "downloads_old",
+      "zone": "low_risk_zone",
+      "risk": "medium",
+      "confidence_score": 61,
+      "confidence_label": "medium",
+      "total_size_bytes": 6074580992,
+      "file_count": 11,
+      "display_size": "5.7 GB",
+      "display_modified_at": "2025-12-01",
+      "recommendation": "Review likely worthwhile; likely removable if still unwanted.",
+      "reason_summary": "Old large files under Downloads were grouped as one review unit.",
+      "llm_rationale": "Flagged as downloads old in a low risk zone based on deterministic local evidence.",
+      "uncertainty_notes": [
+        "Downloads can contain primary user data, so the user still needs to inspect the samples."
+      ],
+      "counterarguments": [
+        "A downloaded ISO or installer may be intentionally retained for offline reinstall."
+      ],
+      "cleanup_characterization": [
+        "probably_unused",
+        "ambiguous"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "downloads old"
+        ],
+        "category_hints": [
+          "downloads_old"
+        ],
+        "under_high_risk_zone": false,
+        "vendor_hint": "demo",
+        "likely_generated_data": false,
+        "age_threshold_hit": true,
+        "locked_state": "not_checked",
+        "duplicate_evidence": null,
+        "confidence_penalties": [],
+        "sample_count": 4
+      },
+      "grouping_logic": "Subset of files grouped by shared downloads old pattern inside one parent folder.",
+      "evidence_source": "deterministic only",
+      "sample_files": [],
+      "extension_distribution": [
+        {
+          "extension": ".iso",
+          "count": 3
+        },
+        {
+          "extension": ".zip",
+          "count": 4
+        }
+      ],
+      "web_citations": []
+    },
+    {
+      "unit_id": "duplicate-group-c-users-demo-downloads-backups",
+      "name": "Duplicate group (3 files)",
+      "path": "C:\\Users\\demo\\Backups",
+      "root_path": "C:\\Users\\demo\\Backups",
+      "item_kind": "grouped_files",
+      "unit_type": "grouped_files_unit",
+      "category": "duplicate_group",
+      "zone": "low_risk_zone",
+      "risk": "low",
+      "confidence_score": 84,
+      "confidence_label": "high",
+      "total_size_bytes": 4831838208,
+      "file_count": 3,
+      "display_size": "4.5 GB",
+      "display_modified_at": "2026-01-20",
+      "recommendation": "Likely redundant duplicates; verify the canonical copy before any manual cleanup.",
+      "reason_summary": "Exact duplicate files share the same SHA-256 hash and are grouped for one review action.",
+      "llm_rationale": "Flagged as duplicate group in a low risk zone based on deterministic local evidence.",
+      "uncertainty_notes": [
+        "Duplicate content does not prove the copies are equally disposable; location and workflow still matter."
+      ],
+      "counterarguments": [
+        "One copy may be the intended backup."
+      ],
+      "cleanup_characterization": [
+        "unreferenced",
+        "ambiguous"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "exact duplicate content"
+        ],
+        "category_hints": [
+          "duplicate_group"
+        ],
+        "under_high_risk_zone": false,
+        "vendor_hint": "demo",
+        "likely_generated_data": false,
+        "age_threshold_hit": true,
+        "locked_state": "not_checked",
+        "duplicate_evidence": {
+          "hash": "abc123",
+          "duplicate_count": 3
+        },
+        "confidence_penalties": [],
+        "sample_count": 3
+      },
+      "grouping_logic": "Duplicate files grouped by exact SHA-256 match and common root path.",
+      "evidence_source": "deterministic only",
+      "sample_files": [],
+      "extension_distribution": [
+        {
+          "extension": ".zip",
+          "count": 3
+        }
+      ],
+      "web_citations": []
+    },
+    {
+      "unit_id": "cache-folder-c-users-demo-appdata-local-nvidia-dxcache",
+      "name": "DXCache (cache)",
+      "path": "C:\\Users\\demo\\AppData\\Local\\NVIDIA\\DXCache",
+      "root_path": "C:\\Users\\demo\\AppData\\Local\\NVIDIA\\DXCache",
+      "item_kind": "folder",
+      "unit_type": "folder_unit",
+      "category": "cache",
+      "zone": "medium_risk_zone",
+      "risk": "medium",
+      "confidence_score": 81,
+      "confidence_label": "high",
+      "total_size_bytes": 1771674009,
+      "file_count": 542,
+      "display_size": "1.7 GB",
+      "display_modified_at": "2026-03-05",
+      "recommendation": "Probably recreatable cache/temp; review likely worthwhile.",
+      "reason_summary": "Entire folder matches a known cache pattern and is large enough to review as one unit.",
+      "llm_rationale": "Flagged as cache in a medium risk zone based on deterministic local evidence.",
+      "uncertainty_notes": [
+        "Shader caches are typically regenerable but may be repopulated after updates or gameplay."
+      ],
+      "counterarguments": [
+        "Deleting caches may only trade disk space for slower first-run performance."
+      ],
+      "cleanup_characterization": [
+        "recreatable",
+        "non-essential"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "NVIDIA shader cache."
+        ],
+        "category_hints": [
+          "cache"
+        ],
+        "under_high_risk_zone": false,
+        "vendor_hint": "NVIDIA",
+        "likely_generated_data": true,
+        "age_threshold_hit": true,
+        "locked_state": "not_checked",
+        "duplicate_evidence": null,
+        "confidence_penalties": [],
+        "sample_count": 5
+      },
+      "grouping_logic": "Entire folder grouped as one cleanup unit because the path strongly matches a known cache/temp/log/dump pattern.",
+      "evidence_source": "deterministic only",
+      "sample_files": [],
+      "extension_distribution": [
+        {
+          "extension": ".bin",
+          "count": 542
+        }
+      ],
+      "web_citations": []
+    },
+    {
+      "unit_id": "installer-folder-c-programdata-package-cache",
+      "name": "Package Cache (runtime dependency)",
+      "path": "C:\\ProgramData\\Package Cache",
+      "root_path": "C:\\ProgramData\\Package Cache",
+      "item_kind": "folder",
+      "unit_type": "folder_unit",
+      "category": "runtime_dependency",
+      "zone": "high_risk_zone",
+      "risk": "high",
+      "confidence_score": 31,
+      "confidence_label": "low",
+      "total_size_bytes": 8589934592,
+      "file_count": 294,
+      "display_size": "8.0 GB",
+      "display_modified_at": "2026-01-08",
+      "recommendation": "Do not touch without expert validation.",
+      "reason_summary": "Large runtime or installer support data in ProgramData was surfaced for awareness but requires manual review.",
+      "llm_rationale": "Flagged as runtime dependency in a high risk zone based on deterministic local evidence.",
+      "uncertainty_notes": [
+        "ProgramData often contains repair data or shared runtime payloads required by installed software."
+      ],
+      "counterarguments": [
+        "Even if the directory looks inactive, removing it can break repair, update, or uninstall flows."
+      ],
+      "cleanup_characterization": [
+        "ambiguous"
+      ],
+      "deterministic_evidence": {
+        "path_patterns": [
+          "Installer support store"
+        ],
+        "category_hints": [
+          "runtime_dependency"
+        ],
+        "under_high_risk_zone": true,
+        "vendor_hint": "Package Cache",
+        "likely_generated_data": false,
+        "age_threshold_hit": false,
+        "locked_state": "not_checked",
+        "duplicate_evidence": null,
+        "confidence_penalties": [
+          "high risk zone"
+        ],
+        "sample_count": 5
+      },
+      "grouping_logic": "Entire folder grouped for awareness because it is a large support-data root in a critical zone.",
+      "evidence_source": "deterministic only",
+      "sample_files": [],
+      "extension_distribution": [
+        {
+          "extension": ".msi",
+          "count": 186
+        },
+        {
+          "extension": ".cab",
+          "count": 108
+        }
+      ],
+      "web_citations": []
+    }
+  ]
+}
+

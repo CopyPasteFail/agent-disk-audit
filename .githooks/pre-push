@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+SCRIPT="$ROOT/scripts/run_pre_push_checks.ps1"
+
+if [ ! -f "$SCRIPT" ]; then
+  echo "Missing pre-push runner at $SCRIPT" >&2
+  exit 1
+fi
+
+if command -v pwsh >/dev/null 2>&1; then
+  exec pwsh -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT"
+fi
+
+if command -v powershell >/dev/null 2>&1; then
+  exec powershell -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT"
+fi
+
+echo "No PowerShell interpreter found for pre-push hook." >&2
+exit 1

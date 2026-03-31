@@ -1,0 +1,78 @@
+{
+  "scan_root": "C:\\",
+  "exclude_paths": [],
+  "high_risk_paths": [
+    "C:\\Windows",
+    "C:\\Program Files",
+    "C:\\Program Files (x86)",
+    "C:\\ProgramData"
+  ],
+  "min_unit_size_mb": 64,
+  "strong_signal_min_unit_size_mb": 16,
+  "large_file_min_size_mb": 256,
+  "file_sample_count": 5,
+  "max_units_in_report": 50,
+  "use_access_time": false,
+  "follow_symlinks": false,
+  "open_report_when_done": false,
+  "output_dir": "examples\\demo-output",
+  "reasoning_provider": "deterministic",
+  "fallback_provider": "deterministic",
+  "web_enrichment_provider": "disabled",
+  "age_threshold_days": {
+    "cache": 14,
+    "logs": 30,
+    "downloads_old": 90,
+    "leftover_installer": 60,
+    "crash_dump": 14,
+    "empty_folder": 30,
+    "obsolete_artifact": 45
+  },
+  "duplicate_detection": {
+    "enabled": true,
+    "min_file_size_mb": 128,
+    "max_hash_candidates": 200
+  },
+  "cache": {
+    "enabled": true,
+    "directory": ".cache",
+    "reasoning_namespace": "reasoning",
+    "web_namespace": "web",
+    "debug_namespace": "debug"
+  },
+  "reasoning": {
+    "max_units": 20,
+    "batch_size": 3,
+    "timeout_seconds": 45,
+    "retries": 1
+  },
+  "codex_local": {
+    "transport": "cli_exec_adapter",
+    "executable": "codex",
+    "timeout_seconds": 45,
+    "healthcheck_timeout_seconds": 15,
+    "batch_size": 3,
+    "retries": 1,
+    "sandbox": "read-only",
+    "approval_policy": "never",
+    "include_plan_tool": false,
+    "auth_file": "~/.codex/auth.json",
+    "config_file": "~/.codex/config.toml",
+    "healthcheck_enabled": true
+  },
+  "openai_api": {
+    "model": "gpt-5.4",
+    "temperature": 0.1,
+    "timeout_seconds": 45,
+    "batch_size": 3,
+    "retries": 1,
+    "api_key_env": "OPENAI_API_KEY"
+  },
+  "duckduckgo_lite": {
+    "timeout_seconds": 8,
+    "max_results": 2
+  },
+  "report": {
+    "chart_category_count": 8
+  }
+}
